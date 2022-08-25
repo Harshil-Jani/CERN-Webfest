@@ -15,6 +15,7 @@ body {
 }
 
 #root {
+    overflow: hidden;
     background-color: white;
     width: 100%;
     display: flex;
@@ -38,9 +39,10 @@ header {
     padding: 10px;
 }
 
-.main-report-selector{
+.main-report-selector {
     margin: 0 10px;
 }
+
 /* Visualization Tabs Styling */
 .visual-tab-bar {
     display: flex;
@@ -49,18 +51,39 @@ header {
     padding: 10px;
 }
 
-.visual-tabs {
+button{
     padding: 5px;
     width: 100px;
     height: 30px;
     margin: 2px;
+}
+input, select {
+    width: 150px;
+    height: 30px;
+}
+
+.custom-file-upload {
+    padding: 5px;
+    width: 100px;
+    height: 30px;
+    margin: 12px;
+    background-color: antiquewhite;
+    border-width: 1px solid black;
+    border-style: double;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 .visual-tab-content {
     height: 81vh;
     width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
+    margin: 15px;
+    background-color: azure;
 }
 
 
@@ -79,3 +102,20 @@ main {
     width: 100%;
 }
 
+/* HTML Table generated from the CSV File using d3 */
+table {
+    display: block;
+    width: 100%;
+}
+
+td,
+th {
+
+    border: 0.5px solid black;
+    padding: 0 10px;
+    height: 25px;
+}
+
+th {
+    cursor: row-resize;
+}
