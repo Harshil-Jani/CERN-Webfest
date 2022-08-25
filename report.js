@@ -105,7 +105,7 @@ const tabulate = (data, table_columns, numeric_columns,extent_array) => {
 
 
 const load_CSV = file => {
-    d3.csv(`${file}.csv`).then(data => {
+    d3.csv(`Data/${file}.csv`).then(data => {
         let table_columns = data.columns;
         let numeric_columns = [];
 
