@@ -1,0 +1,57 @@
+What should be written in the columns of the database	
+Genus	Latin name according to the Plant List database
+Species	Latin name according to the Plant List database
+Country	Full name of country in English
+Name of marginal population	Local name of population
+Coordinate system used by provider	Geographic system used for the coordinates (degree decimal, degree / minute / second, WGS84 UTM, or other). For UTM, indicate the zone
+Latitude (N)	Latitude of the center of the population. A number using the following unit: degree/minute/second, decimal degree, UTM, GPS or other
+Longitude (E or W)	Longitude of the center of the population. A positive (east) or negative (west) number using the following unit: degree/minute/second, decimal degree, UTM, GPS or other
+Latitude (N) DegDec	The standard unit of latitude used in the database for comparision - given or recalculated from provider data - used to verify geographic data
+Longitude DegDec	The standard unit of longitude used in the database for comparision - given or recalculated from provider data - used to verify geographic data
+Elevation (min)	Minimum elevation of the site, in meters above sea level
+Elevation (max)	Maximum elevation of the site, in meters above sea level
+Is the population at an ecological margin ?	yes / no / unknown to information provider
+Type of marginality (geography)	If the population is geographically marginal / peripheral, provide its type: rear edge, leading edge, core (if a population is at the core of the geographic distribution, it needs to be ecologically marginal)
+Type of marginality (fragmentation)	Valid for both ecologically and geographically marginal populations. Choose either peripheral or disjunct
+Type of ownership	Private, public, mixed (public/private), unknown to information provider
+Silvicultural system	No management, individual tree cutting, group cutting, stand cutting, coppicing, unknown to information provider
+Natural regeneration	yes / no / unknown to information provider
+Planting	yes / no / unknown to information provider
+Protection status	National park, nature reserve, other type of park or reserve, no protection, unknwn to information provider (choose the highest known protection status)
+Is the population endangered?	yes / no / unknown to information provider
+Is it a Natura 2000 site?	yes / no / unknown to information provider
+Is it a Gene Conservation unit?	yes / no / unknown to information provider 
+Is it a seed stand?	yes / no / unknown to information provider
+Is it a EUFGIS site?	Is the population listed as a conservation unit in the Eufgis database (http://www.eufgis.org/)? Yes or no
+Are adaptive trait data available?	Is the population included in the WG2 adaptive trait database? Yes or no
+Are genetic diversity marker data available?	Is the population included in the WG2 genetic diversity database? Yes or no
+Why is it marginal	Describe the ecological / genetic / other reason why you consider this population marginal in your expert opinion
+Information provider	Name of the person who provided the information
+Data checked by information provider	true / false
+Data checked by data manager	true / false
+	
+The list of species primarily concerned by the survey is:	
+1. Widely distributed and stand-forming species     	
+Abies alba	
+Fagus sylvatica	
+Picea abies	
+Pinus brutia	
+Pinus halepensis	
+Pinus nigra      	
+Pinus sylvestris	
+Quercus petraea	
+Pinus pinaster	
+Pinus pinea	
+Quercus robur	
+	
+2. Widely distributed and scattered species	
+Fraxinus excelsior 	
+Populus nigra  	
+Populus tremula	
+Sorbus torminalis         	
+	
+3. Restricted-distribution and locally common species       	
+Castanea sativa	
+	
+4.Restricted-distribution and locally scattered species      	
+Pinus cembra	
