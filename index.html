@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performatic Visuals G4</title>
+    <title>Climate Analysis</title>
     <link href="./style.css" rel="stylesheet">
 </head>
 
@@ -22,12 +22,10 @@
             </label>
             <div class="visual-tab-bar">
                 <!-- Tabs for Data Visuals and Reports -->
-                <button class="visual-tabs" onclick="openTab( this,'performance-report')"
-                    id="default-tab">Report</button>
-                <button class="visual-tabs" onclick="openTab(this,'treemaps-tab')">TreeMaps</button>
-                <button class="visual-tabs" onclick="openTab(this,'scatter-plot-tab')">Scatter-Plot</button>
-                <button class="visual-tabs" onclick="openTab(this,'sunburst')">Sunburst</button>
-
+                <button class="visual-tabs" onclick="openTab( this,'performance-report')">Report</button>
+                <button class="visual-tabs" onclick="openTab(this,'area-chart-tab')"
+                    >Area-Chart</button>
+                <button class="visual-tabs" onclick="openTab(this,'radial-plot')" id="default-tab">Radial-Plot</button>
             </div>
         </header>
 
@@ -45,19 +43,27 @@
             </div>
 
             <!-- TreeMaps Tab -->
-            <div id="treemaps-tab" class="visual-tab-content">
-                TM
+            <div id="area-chart-tab" class="visual-tab-content">
+                <div id="area-chart-interactivity">
+                    <select class="area-column-Y" id="column_fields-ac"></select>
+                    <input type="number" placeholder="No. of Points" id="area-entries">
+                </div>
+                <div id="area-chart"></div>
             </div>
-            <div id="scatter-plot-tab" class="visual-tab-content">
-                Scatter
-            </div>
-            <div id="sunburst" class="visual-tab-content">
-                Sunburst
+            <div id="radial-plot" class="visual-tab-content">
+                <div id="radial-plot-interactivity">
+                
+                    <input type="number" placeholder="No. of Days" id="radial-entries">
+                </div>
+                <div id="radial-chart"></div>
             </div>
         </main>
     </div>
 </body>
 <script src="./script.js"></script>
 <script src="./report.js" type="module"></script>
-
+<script src="./Scripts/area_chart.js" type="module"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js"></script>
+<script src="./Scripts/radial.js" type="module"></script>
 </html>

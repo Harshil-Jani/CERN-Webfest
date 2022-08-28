@@ -5,7 +5,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: black;
     padding: 20px;
     justify-content: center;
@@ -83,7 +83,6 @@ input[type="file"] {
     overflow-y: scroll;
     overflow-x: scroll;
     margin: 15px;
-    background-color: azure;
 }
 
 
@@ -118,4 +117,13 @@ th {
 
 th {
     cursor: row-resize;
+}
+.No-Data{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    height: 75vh;
+    background-color: bisque;
 }

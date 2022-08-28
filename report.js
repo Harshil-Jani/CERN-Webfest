@@ -1,7 +1,7 @@
 import * as d3 from "https://cdn.skypack.dev/d3@7";
 
 let toggle_sort = true;
-
+let data_file = "";
 const name_fields = numeric_columns => {
 
     const options = [];
@@ -19,11 +19,11 @@ const name_fields = numeric_columns => {
     })
 }
 // Convert the CSV into Tables
-const tabulate = (data, table_columns, numeric_columns,extent_array) => {
+const tabulate = (data, table_columns, numeric_columns, extent_array) => {
     2
     const table = d3.select("#html-table").append("table").attr("id", "report-table");
     table.append("thead").append("tr");
-    const header = table.select("tr").selectAll("th").data(table_columns).enter().append("th").text(d => d + "🛗");
+    const header = table.select("tr").selectAll("th").data(table_columns).enter().append("th").text(d => d);
     const tbody = table.append("tbody");
     const selectField = document.getElementById("column_fields").value;
 
@@ -37,10 +37,6 @@ const tabulate = (data, table_columns, numeric_columns,extent_array) => {
     // Count to check if there are no available entries
     let count = 0;
     const rows = tbody.selectAll("tr").data(data.filter(d => {
-        if (d.cycles == 0 || d.instructions == 0) {
-            return false;
-        }
-
         let compare_value = d[selectField];
         if (h_filter >= 0 && l_filter >= 0) {
             if (compare_value >= l_filter && compare_value <= h_filter) {
@@ -72,6 +68,11 @@ const tabulate = (data, table_columns, numeric_columns,extent_array) => {
             if (numeric_columns.indexOf(d.column) != -1) {
                 const max_col = extent_array[numeric_columns.indexOf(d.column)]
                 return d3.scaleLinear().domain([max_col[0] / 100, 75 * max_col[1] / 100, 95 * max_col[1] / 100]).range(["green", "white", "red"])(parseFloat(d.value));
+            }
+        }).style("color", d => {
+            if (numeric_columns.indexOf(d.column) != -1) {
+                const max_col = extent_array[numeric_columns.indexOf(d.column)]
+                return d3.scaleLinear().domain([0,max_col[1]]).range(["white", "black"])(parseFloat(d.value));
             }
         });
 
@@ -105,7 +106,7 @@ const tabulate = (data, table_columns, numeric_columns,extent_array) => {
 
 
 const load_CSV = file => {
-    d3.csv(`Data/${file}.csv`).then(data => {
+    d3.csv(`Data/${file}`).then(data => {
         let table_columns = data.columns;
         let numeric_columns = [];
 
@@ -128,7 +129,7 @@ const load_CSV = file => {
 
             extent_array.push(d3.extent(value_array));
         });
-        tabulate(data, table_columns,numeric_columns,extent_array);
+        tabulate(data, table_columns, numeric_columns, extent_array);
         name_fields(numeric_columns);
     });
 
@@ -136,7 +137,7 @@ const load_CSV = file => {
 // Apply Button for Thresholds
 document.getElementById("apply-btn").addEventListener("click", () => {
     d3.select("#report-table").remove();
-    load_CSV(`data`);
+    load_CSV(data_file);
 })
 
 // Reset the reports without filters
@@ -147,6 +148,20 @@ document.getElementById("reset-filter").addEventListener("click", () => {
     l_input.value = "";
     d3.select("table").remove();
     d3.select("#html-table").text("");
-    load_CSV(`data`);
+    load_CSV(data_file);
 })
-load_CSV(`data`);
+document.getElementById("uploader").addEventListener("change", (e) => {
+    data_file = e.target.value.split('\\')[2];
+    d3.select("table").remove();
+    d3.select("#html-table").text("");
+    load_CSV(data_file)
+})
+
+if (data_file==""){
+    d3.select('#html-table').append("span").attr("class","No-Data").append("h1").text("Please Choose a File to preview the Data Report and the Data Visuals !");
+}else{
+    d3.select("table").remove();
+    d3.select("#html-table").text("");
+    load_CSV(data_file);
+}
+
